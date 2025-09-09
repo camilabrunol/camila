@@ -5,174 +5,70 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Blog — DIESEL</title>
 
-  <!-- Tipografía más gruesa (Montserrat ExtraBold + Roboto Bold) -->
+  <!-- Tipografía más gruesa -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --color-red: #e31b23;
-      --color-black: #0b0b0b;
-      --color-white: #ffffff;
-      --max-width: 1100px;
-      --gap: 1.25rem;
-    }
-
-    *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: "Roboto", sans-serif;
-      font-weight:700; /* más grueso */
-      background: var(--color-white);
-      color: var(--color-black);
+      font-family:"Roboto",sans-serif;
+      font-weight:700;
+      background:#fff;
+      color:#0b0b0b;
       line-height:1.6;
-      padding-top:72px;
+      padding-top:72px
     }
-
-    body::before{
-      content:"DIESEL";
-      position:fixed;
-      top:-10%; left:-10%;
-      font-family:"Montserrat", sans-serif;
-      font-weight:900;
-      font-size:22rem;
-      color:var(--color-black);
-      opacity:0.05;
-      transform:rotate(-18deg);
-      pointer-events:none;
-      z-index:0;
-    }
-
-    .wrap{
-      max-width:var(--max-width);
-      margin:0 auto;
-      padding:2rem;
-      position:relative;
-      z-index:1;
-    }
-
-    /* NAV */
+    .wrap{max-width:1100px;margin:0 auto;padding:2rem}
     .topnav{
-      position:fixed;
-      top:0;left:0;right:0;
-      height:64px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+      position:fixed;top:0;left:0;right:0;height:64px;
+      display:flex;align-items:center;justify-content:space-between;
       padding:0 1.5rem;
       background:rgba(255,255,255,0.95);
       border-bottom:1px solid rgba(0,0,0,0.1);
       z-index:10;
     }
-    .brand{
-      display:flex;align-items:center;gap:0.6rem;
-      font-family:"Montserrat", sans-serif;
-      font-weight:900;
-      text-decoration:none;
-      color:var(--color-black);
-    }
-    .logo-mark{
-      width:44px;height:44px;
-      display:grid;place-items:center;
-      background:var(--color-black);
-      color:var(--color-white);
-      border-radius:6px;
-      font-weight:900;
-    }
-    .nav-links{display:flex;gap:1rem}
-    .nav-links a{
-      text-decoration:none;
-      color:var(--color-black);
-      padding:0.45rem 0.7rem;
-      border-radius:6px;
-      font-weight:700;
-    }
-    .nav-links a:hover{background:rgba(0,0,0,0.08)}
-    .nav-cta{
-      background:var(--color-red);color:var(--color-white);
-    }
-    .nav-cta:hover{filter:brightness(0.9)}
-
-    /* HERO */
-    header.site-hero{
-      margin-bottom:2rem;
-      padding:2rem;
-      background:#f8f8f8;
-      border-radius:10px;
-    }
-    .hero-title{
-      font-family:"Montserrat", sans-serif;
-      font-weight:900;
-      font-size:2.2rem;
-      margin:0;
-    }
-
-    /* POSTS */
-    main.grid{
-      display:grid;
-      gap:2rem;
-    }
+    .brand{font-family:"Montserrat",sans-serif;font-weight:900;text-decoration:none;color:#0b0b0b}
+    .hero-title{font-family:"Montserrat",sans-serif;font-weight:900;font-size:2.2rem;margin:0}
+    main.grid{display:grid;gap:2rem}
     article.post{
-      background:#fff;
-      border-radius:10px;
+      background:#fff;border-radius:10px;
       box-shadow:0 4px 12px rgba(0,0,0,0.06);
       padding:1.2rem;
-      display:flex;
-      flex-direction:column;
-      gap:1rem;
+      display:flex;flex-direction:column;gap:1rem
     }
-    .post h2{
-      font-family:"Montserrat", sans-serif;
-      font-weight:800;
-      margin:0;
-    }
-    .post p{margin:0}
-
-    .media img{
-      width:100%;
-      height:auto;
-      border-radius:8px;
-    }
-
+    .post h2{font-family:"Montserrat",sans-serif;font-weight:800;margin:0}
+    .media img{width:100%;border-radius:8px}
     .btn{
       display:inline-block;
       padding:0.6rem 1rem;
       border-radius:6px;
       font-weight:800;
-      text-decoration:none;
-      transition:0.2s;
+      text-decoration:none
     }
-    .btn-primary{background:var(--color-red);color:#fff}
+    .btn-primary{background:#e31b23;color:#fff}
     .btn-primary:hover{filter:brightness(0.9)}
-    .btn-outline{border:2px solid var(--color-black);color:var(--color-black)}
-    .btn-outline:hover{background:var(--color-black);color:#fff}
-
-    /* FOOTER */
+    .btn-outline{border:2px solid #0b0b0b;color:#0b0b0b}
+    .btn-outline:hover{background:#0b0b0b;color:#fff}
     footer{
-      margin-top:2rem;
-      padding:1rem;
-      text-align:center;
-      background:var(--color-black);
-      color:var(--color-white);
-      border-radius:8px;
-      font-weight:700;
+      margin-top:2rem;padding:1rem;text-align:center;
+      background:#0b0b0b;color:#fff;
+      border-radius:8px;font-weight:700
     }
-
-    @media(min-width:900px){
-      main.grid{grid-template-columns:1fr 1fr}
-    }
+    @media(min-width:900px){main.grid{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
   <!-- NAV -->
   <nav class="topnav">
-    <a href="#" class="brand"><span class="logo-mark">D</span> DIESEL Blog</a>
+    <a href="index.html" class="brand">DIESEL Blog</a>
     <div class="nav-links">
       <a href="#colecciones">Colecciones</a>
       <a href="#estilo">Estilo</a>
       <a href="#editorial">Editorial</a>
-      <a class="nav-cta" href="#suscripcion">Suscribite</a>
+      <a class="btn btn-primary" href="#suscripcion">Suscribite</a>
     </div>
-  </nav
+  </nav>
+
   <div class="wrap">
     <!-- HERO -->
     <header class="site-hero">
@@ -182,36 +78,40 @@
 
     <!-- POSTS -->
     <main class="grid">
+      <!-- POST 1 -->
       <article class="post">
         <h2>El poder del denim</h2>
         <div class="media">
-          <img src="https://share.google/images/RwuAZWbEcdSDh56F6" alt="Denim Diesel estilo urbano">
+          <img src="https://images.unsplash.com/photo-1596755389378-c31c7f6c3b99?w=1200" alt="Denim Diesel estilo urbano">
         </div>
         <p>El denim Diesel no solo viste, comunica rebeldía y actitud. Cada costura es parte de su identidad.</p>
-        <a class="btn btn-primary" href="#">Leer más</a>
+        <a class="btn btn-primary" href="leer-mas.html">Leer más</a>
       </article>
 
+      <!-- POST 2 -->
       <article class="post">
         <h2>Campañas icónicas</h2>
         <div class="media">
-          <img src="https://share.google/images/etwvQPEzg6CsctCu4" alt="Campaña Diesel modelo en rojo">
+          <img src="https://images.unsplash.com/photo-1602810316992-fd4f84f3a52a?w=1200" alt="Campaña Diesel modelo en rojo">
         </div>
         <p>Las campañas Diesel rompen moldes con imágenes potentes, tonos rojos intensos y mensajes directos.</p>
         <a class="btn btn-outline" href="#">Ver campañas</a>
       </article>
 
+      <!-- POST 3 -->
       <article class="post">
         <h2>Colaboraciones que inspiran</h2>
         <div class="media">
-          <img src="https://share.google/images/5rSIMQFik37pv5318" alt="Colaboración de moda Diesel">
+          <img src="https://images.unsplash.com/photo-1617137968427-85924f3f32a1?w=1200" alt="Colaboración de moda Diesel">
         </div>
         <p>Colaborar con artistas y marcas externas permite a Diesel reinventar su ADN y llegar a nuevas audiencias.</p>
       </article>
 
+      <!-- POST 4 -->
       <article class="post">
         <h2>Cómo combinarlo</h2>
         <div class="media">
-          <img src="https://share.google/images/S0bvYZNptFlV0GsiE" alt="Looks urbanos Diesel">
+          <img src="https://images.unsplash.com/photo-1521336575822-6da63fb45455?w=1200" alt="Looks urbanos Diesel">
         </div>
         <p>Chaquetas oversize, sneakers robustos y jeans ajustados: claves para un look urbano Diesel.</p>
         <a class="btn btn-primary" href="#">Ver lookbook</a>
