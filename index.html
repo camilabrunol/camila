@@ -3,124 +3,260 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Blog — DIESEL</title>
+  <title>Las mejores comidas de Argentina — Blog</title>
 
-  <!-- Tipografía más gruesa -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Tipografía: si querés otra fuente, cambiá esta URL o el font-family -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* --- Variables de color --- */
+    :root{
+      --celeste: #6EC1E4;
+      --azul-oscuro: #0F4C75;
+      --azul-claro: #D9F1FB;
+      --blanco: #ffffff;
+      --negro-min: #111111;
+      --gris-clarito: #f5f7fb;
+      --radio: 10px;
+      --max-width: 1100px;
+      --base-font-size: 16px;
+    }
+
+    /* --- Reset / base --- */
+    *{box-sizing:border-box}
+    html{font-size:var(--base-font-size); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
     body{
       margin:0;
-      font-family:"Roboto",sans-serif;
-      font-weight:700;
-      background:#fff;
-      color:#0b0b0b;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--negro-min);
+      background: linear-gradient(180deg, var(--gris-clarito) 0%, var(--blanco) 100%);
       line-height:1.6;
-      padding-top:72px
     }
-    .wrap{max-width:1100px;margin:0 auto;padding:2rem}
-    .topnav{
-      position:fixed;top:0;left:0;right:0;height:64px;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:0 1.5rem;
-      background:rgba(255,255,255,0.95);
-      border-bottom:1px solid rgba(0,0,0,0.1);
-      z-index:10;
+
+    /* --- Layout container --- */
+    .wrap{
+      max-width:var(--max-width);
+      margin:40px auto;
+      padding:24px;
     }
-    .brand{font-family:"Montserrat",sans-serif;font-weight:900;text-decoration:none;color:#0b0b0b}
-    .hero-title{font-family:"Montserrat",sans-serif;font-weight:900;font-size:2.2rem;margin:0}
-    main.grid{display:grid;gap:2rem}
-    article.post{
-      background:#fff;border-radius:10px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.06);
-      padding:1.2rem;
-      display:flex;flex-direction:column;gap:1rem
+
+    /* --- NAVBAR --- */
+    nav.topnav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      background:var(--blanco);
+      padding:12px 18px;
+      border-radius:12px;
+      box-shadow: 0 6px 18px rgba(12,20,30,0.06);
+      margin-bottom:28px;
     }
-    .post h2{font-family:"Montserrat",sans-serif;font-weight:800;margin:0}
-    .media img{width:100%;border-radius:8px}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:var(--azul-oscuro);
+      font-weight:700;
+      font-size:1.05rem;
+    }
+    .brand .logo{
+      width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,var(--celeste),var(--azul-oscuro));
+      display:inline-block;
+    }
+    .nav-links{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .nav-links a{
+      text-decoration:none;
+      color:var(--azul-oscuro);
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+    }
+    .nav-links a:hover{
+      background:var(--azul-claro);
+    }
+
+    /* --- Hero --- */
+    .hero{
+      background: linear-gradient(90deg, rgba(110,193,228,0.10), rgba(15,76,117,0.03));
+      border-radius:14px;
+      padding:28px;
+      margin-bottom:22px;
+      display:flex;
+      gap:22px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .hero h1{
+      margin:0;
+      font-size:2rem;
+      color:var(--negro-min);
+      letter-spacing:-0.02em;
+    }
+    .hero p{ margin:6px 0 0 0; color:#2b2b2b; opacity:0.9; max-width:720px; }
+
+    /* --- Grid de artículos --- */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+    }
+    .card{
+      background:var(--blanco);
+      border-radius:12px;
+      padding:16px;
+      box-shadow: 0 6px 18px rgba(12,20,30,0.04);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    /* --- Imágenes adaptativas --- */
+    .card img{
+      width:100%;
+      max-height:220px;
+      object-fit:cover;
+      display:block;
+      border-radius:8px;
+    }
+
+    h2{ margin:0; font-size:1.15rem; color:var(--negro-min); }
+    p.lead{ margin:0; color:#333; font-size:0.98rem; }
+
+    /* --- Botones destacados --- */
     .btn{
       display:inline-block;
-      padding:0.6rem 1rem;
-      border-radius:6px;
-      font-weight:800;
-      text-decoration:none
+      text-decoration:none;
+      background:var(--celeste);
+      color:var(--blanco);
+      padding:10px 14px;
+      border-radius:8px;
+      font-weight:700;
+      transition: transform .12s ease, box-shadow .12s ease;
     }
-    .btn-primary{background:#e31b23;color:#fff}
-    .btn-primary:hover{filter:brightness(0.9)}
-    .btn-outline{border:2px solid #0b0b0b;color:#0b0b0b}
-    .btn-outline:hover{background:#0b0b0b;color:#fff}
-    footer{
-      margin-top:2rem;padding:1rem;text-align:center;
-      background:#0b0b0b;color:#fff;
-      border-radius:8px;font-weight:700
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow: 0 8px 20px rgba(30,110,165,0.12);
+      background:var(--azul-oscuro);
     }
-    @media(min-width:900px){main.grid{grid-template-columns:1fr 1fr}}
+
+    /* --- Links de texto --- */
+    a.inline-link{ color:var(--azul-oscuro); text-decoration:underline; font-weight:600; }
+    a.inline-link:hover{ color:var(--celeste); }
+
+    /* --- Footer --- */
+    footer.site-footer{
+      margin-top:32px;
+      padding:18px;
+      background:var(--azul-oscuro);
+      color:var(--blanco);
+      text-align:center;
+      border-radius:8px;
+    }
+    footer small{ opacity:0.95; }
+
+    /* --- Espaciados/responsive --- */
+    .meta{ color:#666; font-size:0.88rem; }
+    .excerpt{ color:#444; font-size:0.95rem; }
+
+    @media (max-width:640px){
+      .hero h1{ font-size:1.6rem; }
+      .wrap{ padding:16px; margin:20px auto; }
+    }
   </style>
 </head>
 <body>
-  <!-- NAV -->
-  <nav class="topnav">
-    <a href="index.html" class="brand">DIESEL Blog</a>
-    <div class="nav-links">
-      <a href="#colecciones">Colecciones</a>
-      <a href="#estilo">Estilo</a>
-      <a href="#editorial">Editorial</a>
-      <a class="btn btn-primary" href="#suscripcion">Suscribite</a>
-    </div>
-  </nav>
-
   <div class="wrap">
-    <!-- HERO -->
-    <header class="site-hero">
-      <h1 class="hero-title">DIESEL: Moda con fuerza y carácter</h1>
-      <p>Un recorrido por el universo Diesel: denim, campañas y estilo que trasciende.</p>
-    </header>
+    <nav class="topnav" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Sabores Argentinos</span>
+      </a>
 
-    <!-- POSTS -->
-    <main class="grid">
-      <!-- POST 1 -->
-      <article class="post">
-        <h2>El poder del denim</h2>
-        <div class="media">
-          <img src="https://images.unsplash.com/photo-1596755389378-c31c7f6c3b99?w=1200" alt="Denim Diesel estilo urbano">
-        </div>
-        <p>El denim Diesel no solo viste, comunica rebeldía y actitud. Cada costura es parte de su identidad.</p>
-        <a class="btn btn-primary" href="leer-mas.html">Leer más</a>
-      </article>
+      <div class="nav-links" role="menubar">
+        <a href="index.html" role="menuitem">Inicio</a>
+        <a href="leermas.html" role="menuitem">Leer más</a>
+        <a href="#contacto" role="menuitem">Contacto</a>
+      </div>
+    </nav>
 
-      <!-- POST 2 -->
-      <article class="post">
-        <h2>Campañas icónicas</h2>
-        <div class="media">
-          <img src="https://images.unsplash.com/photo-1602810316992-fd4f84f3a52a?w=1200" alt="Campaña Diesel modelo en rojo">
-        </div>
-        <p>Las campañas Diesel rompen moldes con imágenes potentes, tonos rojos intensos y mensajes directos.</p>
-        <a class="btn btn-outline" href="#">Ver campañas</a>
-      </article>
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title">Las mejores comidas de Argentina</h1>
+        <p>Un vistazo minimalista y moderno a platos esenciales: empanadas, asado, milanesa, locro y más. Recetas, orígenes y recomendaciones para probarlos en tu próxima salida.</p>
+        <p style="margin-top:12px">
+          <a class="btn" href="#platos">Explorar platos</a>
+        </p>
+      </div>
+      <div style="flex:1;min-width:220px; text-align:right;">
+        <img src="https://images.unsplash.com/photo-1541542684-0a6dbf57e7d7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" alt="Plato argentino" style="border-radius:10px; max-width:320px; width:100%; height:auto;">
+      </div>
+    </section>
 
-      <!-- POST 3 -->
-      <article class="post">
-        <h2>Colaboraciones que inspiran</h2>
-        <div class="media">
-          <img src="https://images.unsplash.com/photo-1617137968427-85924f3f32a1?w=1200" alt="Colaboración de moda Diesel">
-        </div>
-        <p>Colaborar con artistas y marcas externas permite a Diesel reinventar su ADN y llegar a nuevas audiencias.</p>
-      </article>
+    <main id="platos" aria-label="Lista de platos">
+      <div class="grid">
+        <!-- Card 1 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1604908177522-7d2a1e3f6f48?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" alt="Empanadas argentinas">
+          <h2>Empanadas</h2>
+          <div class="meta">Origen: Varias provincias · Tiempo aprox. 1h</div>
+          <p class="excerpt">Pequeños bolsillos rellenos: carne cortada, cebolla, huevo y condimentos. Cada provincia tiene su versión — salteñas, tucumanas, mendocinas.</p>
+          <div style="margin-top:auto;">
+            <a class="inline-link" href="#empanadas">Leer más</a>
+          </div>
+        </article>
 
-      <!-- POST 4 -->
-      <article class="post">
-        <h2>Cómo combinarlo</h2>
-        <div class="media">
-          <img src="https://images.unsplash.com/photo-1521336575822-6da63fb45455?w=1200" alt="Looks urbanos Diesel">
-        </div>
-        <p>Chaquetas oversize, sneakers robustos y jeans ajustados: claves para un look urbano Diesel.</p>
-        <a class="btn btn-primary" href="#">Ver lookbook</a>
-      </article>
+        <!-- Card 2 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" alt="Asado argentino">
+          <h2>Asado</h2>
+          <div class="meta">Origen: Tradición ciudadana · Tiempo variable</div>
+          <p class="excerpt">Ritual social en torno a la parrilla: cortes, chorizos, achuras y el fuego lento. No es solo comida, es encuentro.</p>
+          <div style="margin-top:auto;">
+            <a class="inline-link" href="#asado">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" alt="Milanesa argentina">
+          <h2>Milanesa</h2>
+          <div class="meta">Versátil · Perfecta con papas fritas</div>
+          <p class="excerpt">Filetes empanados y fritos que pueden servirse al plato o en sándwich: la clásica favorita del almuerzo casero.</p>
+          <div style="margin-top:auto;">
+            <a class="inline-link" href="#milanesa">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1604908813468-7fdc32b7b3e6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" alt="Locro argentino">
+          <h2>Locro</h2>
+          <div class="meta">Plato tradicional · Ideal en invierno</div>
+          <p class="excerpt">Guiso espeso a base de maíz, zapallo y porotos con carne y chorizo — típico en celebraciones patrias.</p>
+          <div style="margin-top:auto;">
+            <a class="inline-link" href="#locro">Leer más</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- pequeña sección de recursos -->
+      <section style="margin-top:28px; background:var(--blanco); padding:18px; border-radius:10px;">
+        <h2 style="margin-bottom:8px;">¿Querés saber más?</h2>
+        <p class="lead">Visita la página <strong>"Leer más"</strong> para artículos extendidos y recomendaciones de lugares para probar cada plato.</p>
+        <p style="margin-top:12px;">
+          <a class="btn" href="leermas.html">Ir a Leer más</a>
+        </p>
+      </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-      DIESEL Blog — Inspirado en la marca · Estilo rojo, blanco y negro
+    <footer class="site-footer" id="contacto">
+      <small>© 2025 Sabores Argentinos — Diseño minimalista con paleta celeste/blancos/azules</small>
     </footer>
   </div>
 </body>
