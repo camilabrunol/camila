@@ -3,80 +3,92 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Leer más — DIESEL Blog</title>
+  <title>Leer más — Sabores Argentinos</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root{
+      --celeste: #6EC1E4;
+      --azul-oscuro: #0F4C75;
+      --azul-claro: #D9F1FB;
+      --blanco: #ffffff;
+      --negro-min: #111111;
+      --max-width:1100px;
+      --base-font-size:16px;
+    }
+    *{box-sizing:border-box}
+    html{font-size:var(--base-font-size)}
     body{
       margin:0;
-      font-family:"Roboto",sans-serif;
-      font-weight:700;
-      background:#fff;
-      color:#0b0b0b;
-      line-height:1.6;
-      padding-top:72px
+      font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--azul-claro),var(--blanco));
+      color:var(--negro-min);
     }
-    .wrap{max-width:900px;margin:0 auto;padding:2rem}
-    .topnav{
-      position:fixed;top:0;left:0;right:0;height:64px;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:0 1.5rem;
-      background:rgba(255,255,255,0.95);
-      border-bottom:1px solid rgba(0,0,0,0.1);
-      z-index:10;
+    .wrap{ max-width:var(--max-width); margin:36px auto; padding:20px; }
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      background:var(--blanco); padding:12px 16px; border-radius:12px; box-shadow: 0 6px 18px rgba(12,20,30,0.05);
     }
-    .brand{font-family:"Montserrat",sans-serif;font-weight:900;text-decoration:none;color:#0b0b0b}
-    h1,h2{font-family:"Montserrat",sans-serif;font-weight:800}
-    .media img{width:100%;border-radius:8px;margin:1rem 0}
-    .btn{
-      display:inline-block;
-      padding:0.6rem 1rem;
-      border-radius:6px;
-      font-weight:800;
-      text-decoration:none
+    header h1{ margin:0; font-size:1.3rem; color:var(--azul-oscuro); }
+    .back{
+      text-decoration:none; background:var(--celeste); color:var(--blanco); padding:8px 12px; border-radius:8px; font-weight:700;
     }
-    .btn-primary{background:#e31b23;color:#fff}
-    .btn-primary:hover{filter:brightness(0.9)}
-    footer{
-      margin-top:2rem;padding:1rem;text-align:center;
-      background:#0b0b0b;color:#fff;
-      border-radius:8px;font-weight:700
+    .back:hover{ background:var(--azul-oscuro); }
+
+    article.content{
+      margin-top:18px; background:var(--blanco); padding:18px; border-radius:12px; box-shadow: 0 8px 26px rgba(12,20,30,0.06);
+    }
+    .content h2{ color:var(--azul-oscuro); margin-top:0; }
+    .content img{ width:100%; height:auto; border-radius:8px; margin:12px 0; max-height:360px; object-fit:cover; }
+
+    .callout{
+      margin-top:14px; padding:12px; border-radius:10px; background:linear-gradient(90deg, rgba(110,193,228,0.08), rgba(15,76,117,0.02));
+    }
+
+    footer{ margin-top:20px; text-align:center; color:#fff; background:var(--azul-oscuro); padding:12px; border-radius:8px; }
+    @media (max-width:640px){
+      header{ flex-direction:column; align-items:flex-start; gap:8px; }
     }
   </style>
 </head>
 <body>
-  <!-- NAV -->
-  <nav class="topnav">
-    <a href="index.html" class="brand">DIESEL Blog</a>
-  </nav>
-
   <div class="wrap">
-    <h1>El poder del denim</h1>
-    <div class="media">
-      <img src="https://images.unsplash.com/photo-1596755389378-c31c7f6c3b99?w=1200" alt="Denim Diesel estilo urbano">
-    </div>
-    <p>
-      El denim ha sido el corazón de Diesel desde sus inicios. La marca italiana entendió que los jeans
-      no eran solo una prenda básica, sino una forma de expresión cultural y estética. 
-    </p>
-    <p>
-      Los jeans Diesel están diseñados con un estilo atrevido, buscando siempre la innovación en
-      lavados, cortes y acabados. La mezcla de tradición artesanal con procesos tecnológicos
-      modernos les da un carácter único.
-    </p>
-    <p>
-      Además de la estética, Diesel ha hecho del denim un símbolo de actitud: rebelde, urbano y
-      con una fuerte carga de autenticidad.
-    </p>
+    <header>
+      <h1>Leer más — Sabores Argentinos</h1>
+      <div>
+        <a href="index.html" class="back">← Volver al blog</a>
+      </div>
+    </header>
 
-    <a class="btn btn-primary" href="materiales.html">Conocer materiales ➝</a>
-    <br><br>
-    <a class="btn btn-primary" href="index.html">⬅ Volver al blog</a>
+    <article class="content" aria-labelledby="lm-title">
+      <h2 id="lm-title">Guía extendida de platos tradicionales</h2>
+      <p class="meta">Profundizamos en cuatro clásicos — orígenes, dónde probarlos y variaciones regionales.</p>
+
+      <h3 style="margin-top:18px;">Empanadas</h3>
+      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" alt="Empanadas">
+      <p>Las empanadas argentinas varían mucho según la provincia: Mendoza y San Juan prefieren carne picada con condimentos secos; Salta suele usar carne cortada a cuchillo y comino; en Buenos Aires se encuentran también versiones fritas y al horno.</p>
+
+      <div class="callout">
+        <strong>Sugerencia:</strong> Si vas a probar empanadas, preguntá si son "a la criolla", "a la tucumana" o "salteña" para identificar el estilo regional.
+      </div>
+
+      <h3 style="margin-top:18px;">Asado</h3>
+      <img src="https://images.unsplash.com/photo-1543351611-8f4b9f7f6058?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" alt="Asado en parrilla">
+      <p>El asado es una experiencia social: cortes como vacío, costillas y entraña, acompañados con chimichurri y provoleta. Para una experiencia auténtica buscá parrillas con leña o carbón y parrilleros que respeten tiempos largos de cocción.</p>
+
+      <h3 style="margin-top:18px;">Milanesa</h3>
+      <p>La milanesa puede ser de carne vacuna, pollo o incluso vegetariana (milanesa de soja/berenjena). En sándwich (milanesa al pan) es un clásico popular en confiterías y bodegones.</p>
+
+      <h3 style="margin-top:18px;">Locro</h3>
+      <p>Plato de celebración: una olla grande de locro alimenta a varios comensales. Su textura espesa y sabor potente lo hacen ideal para días fríos. Suelen cocinarlo con zapallo, maíz partido y cortes grasos para dar consistencia.</p>
+
+      <p style="margin-top:18px;">¿Querés que convierta esta página en un artículo más largo (recetas paso a paso, ingredientes y tiempos)? Puedo generarlo listo para imprimir o para publicar.</p>
+    </article>
+
+    <footer>
+      <small>© 2025 Sabores Argentinos — Página "Leer más"</small>
+    </footer>
   </div>
-
-  <footer>
-    DIESEL Blog — Inspirado en la marca · Estilo rojo, blanco y negro
-  </footer>
 </body>
 </html>
